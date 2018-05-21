@@ -2,10 +2,10 @@ use strict;
 use 5.010;
 use utf8;
 
-my $fname = 'access.log';
+my $fname = 'acdcess.log';
 my %hash = ();
 
-open(my $fh, '<', $fname) or die "NO NO NO '$fname' $!";
+open(my $fh, '<', $fname) or die "Everising is bad '$fname' $!";
 while (my $line = <$fh>)
 {
 	if ($line =~ /(\d+\.\d+.\d+.\d+)/)
@@ -22,7 +22,7 @@ while (my $line = <$fh>)
 }
 
 my $i = 0;
-foreach(sort {$hash{$b} <=> $hash{$a}} keys %hash, )
+foreach(sort {$hash{$b} <=> $hash{$a}} keys %hash)
 {
 	print $_,' = ',$hash{$_},"\n";
 	$i++;
@@ -31,3 +31,4 @@ foreach(sort {$hash{$b} <=> $hash{$a}} keys %hash, )
 		last;
 	}
 }
+
